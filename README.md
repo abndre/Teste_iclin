@@ -45,3 +45,19 @@ de deletar ou atualizar um usuário, pois se houver alguém com o mesmo nome dar
 Não foi colocado uma pagina de erro.
 
 
+###########################################
+
+Para testar a aplicação rode o arquivo main.py, depois rode o 
+```bash
+python teste_aplicacao.py --number 10
+```
+--number 10 -> remete a quantidade de loops para post
+
+Onde ocorre testes de obtencao dos valores e de adicionar dados.
+
+###########################################
+
+O teste apenas adiciona, mas é possível criar uma possível atualização ao invés de adicionar de acordo a base.
+
+
+

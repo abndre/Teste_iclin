@@ -17,7 +17,7 @@
 #Exclusao de um agendamento - OK
 
 from bottle import run, get, post, request, delete, put
-
+import pdb
 #Examplo de Input
 
 agendamento = [
@@ -53,7 +53,8 @@ def getAgendamento():
 '''Este e o metodo que retorna a listagem de agendamento'''
 @get('/agenda')
 def getAll():
-	getAgendamento()
+	#return {'agendamento' : agendamento}
+	return getAgendamento()
 
 #methodo que retorna um nome da agenda,
 # TODO, retorna apenas um valor de Paciente,
@@ -71,6 +72,7 @@ def getOne(name):
 ''' methodo de cadastro de um agendamento'''
 @post('/agenda')
 def addOne():
+	#import pdb;pdb.set_trace()
 	new_agendamento = {
 					   'Paciente' : request.json.get('Paciente'), 
 					   'data' : request.json.get('data'),
@@ -79,7 +81,8 @@ def addOne():
 					   'Procedimento' : request.json.get('Procedimento'),
 					   }
 	agendamento.append(new_agendamento)
-	getAgendamento()
+	return getAgendamento()
+
 
 
 #Methodo que remove um paciente
@@ -89,7 +92,8 @@ def addOne():
 def removeOne(name):
 	agenda = look_in_list(agendamento,name)
 	agendamento.remove(agenda)
-	getAgendamento()
+	return getAgendamento()
+
 
 
 #Method que atualiza
@@ -98,10 +102,10 @@ def removeOne(name):
 def updateOne():
 	name = request.json.get('Paciente')
 	if look_in_list(agendamento,name):
-		removeOne(name)
-		addOne()
+		return removeOne(name)
+		return addOne()
 	else:
-		addOne()
+		return addOne()
 
 	
 
